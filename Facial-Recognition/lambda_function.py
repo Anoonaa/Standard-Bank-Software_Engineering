@@ -3,7 +3,7 @@ import boto3
 import tempfile
 from PIL import Image
 import numpy as np
-from image_encoder import encode_image  # Import the encode_image function
+from image_encoder import encode_image  
 
 def lambda_handler(event, context):
     s3_client = boto3.client('s3')
@@ -19,8 +19,6 @@ def lambda_handler(event, context):
         
         # Encode the image
         encoded_vector = encode_image(tmp_file.name)
-    
-    # Optionally, you could save the encoded vector to another S3 bucket or process it further here
     
     return {
         'statusCode': 200,
